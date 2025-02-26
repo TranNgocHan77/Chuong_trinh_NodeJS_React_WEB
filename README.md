@@ -72,3 +72,42 @@ npm install
 ---
 
 Chạy thử và báo lỗi nếu gặp vấn đề nhé! 🚀
+
+---
+
+
+
+---
+Code này thường được ghi trong file **`src/App.js`** trong một dự án React.  
+
+📌 **Vị trí file trong dự án React**:  
+```
+esp32-dashboard/   # Thư mục dự án React
+│── node_modules/
+│── public/
+│── src/
+│   ├── App.js  <-- 📌 Đây là nơi đặt code của bạn
+│   ├── index.js
+│   ├── ...
+│── package.json
+│── ...
+```
+
+📌 **Hướng dẫn kiểm tra**:
+- Nếu bạn đang trong dự án React, mở file `src/App.js` và thay thế nội dung bằng code của bạn.
+- Sau đó chạy:
+  ```sh
+  npm start
+  ```
+  để kiểm tra giao diện trên trình duyệt.
+
+Nếu bạn đặt code trong file khác, hãy chắc chắn import nó vào `index.js`:
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";  // Đảm bảo đường dẫn đúng
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+Bạn kiểm tra xem file `src/App.js` có chưa nhé! 🚀
