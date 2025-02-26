@@ -74,7 +74,47 @@ npm install
 Chạy thử và báo lỗi nếu gặp vấn đề nhé! 🚀
 
 ---
+code này được ghi trong file nào:"import React, { useEffect, useState } from "react";
 
+function App() {
+    const [data, setData] = useState({ temperature: 0, humidity: 0 });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("/data");
+                const result = await response.json();
+                setData(result);
+            } catch (error) {
+                console.error("Lỗi khi lấy dữ liệu:", error);
+            }
+        };
+
+        fetchData();
+        const interval = setInterval(fetchData, 5000); // Lấy dữ liệu mỗi 5 giây
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div style={{ 
+            textAlign: "center", 
+            fontFamily: "Arial", 
+            backgroundColor: "#282c34", 
+            color: "white", 
+            minHeight: "100vh", 
+            display: "flex", 
+            flexDirection: "column", 
+            alignItems: "center", 
+            justifyContent: "center" 
+        }}>
+            <h1 style={{ color: "#61dafb" }}>ESP32 Dashboard</h1>
+            <p>Nhiệt độ: {data.temperature}°C</p>
+            <p>Độ ẩm: {data.humidity}%</p>
+        </div>
+    );
+}
+
+export default App; "
 
 
 ---
